@@ -1,0 +1,55 @@
+@startuml
+
+class Student {
+    Long studentId
+    Long githubId
+    String handle
+    List<Termin> termine
+    Integer summeUrlaub
+
+    addUrlaub(Termin)
+    addKlausur(Termin)
+    removeUrlaub(Termin)
+    removeKlausurBuchung(Termin)
+    getSummeUrlaub()
+}
+
+
+class Termin {
+    Long id
+    TerminTyp typ
+    LocalDate tag
+    Zeitraum freistellung
+}
+
+enum TerminTyp{
+    Urlaub, OnlineKlausur, PraesenzKlausur
+}
+
+class Zeitraum {
+    Long dauerInMinuten
+    LocalTime start
+    LocalTime ende
+
+    pruefeNachbar(Zeitraum)
+    pruefeUeberlappung(Zeitraum)
+}
+
+class Klausur {
+    Long klausurId
+    Long lsfId
+    String fachName
+    LocalDate tag
+    Zeitraum zeitraum
+    Boolean online
+
+    toTermin()
+}
+
+Student *-- Termin
+Klausur o-- Zeitraum
+Termin o-- Zeitraum
+Termin *-- TerminTyp
+
+
+@enduml
