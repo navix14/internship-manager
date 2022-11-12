@@ -1,4 +1,7 @@
-# Chicken | System zur Verwaltung von Praktikas für Studenten
+# Internship management system for students
+Simple Spring Boot App to showcase possible implementation of Domain Driven Design concepts.
+
+This was done as part of a group project at university.
 
 ### Anleitung:
 * Grundsätzlich ist es möglich, das Datum über die Umgebungsvariablen `START_DATUM` und `END_DATUM` zu konfigurieren, andernfalls wird ein valider Default-Zeitraum verwendet.
